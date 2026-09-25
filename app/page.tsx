@@ -4,44 +4,65 @@ const WHATSAPP =
 const wa = (message: string) =>
   `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
 
-const solutions = [
+const solutionCards = [
   {
-    kicker: "Automação comercial",
-    title: "PDV e gestão para o dia a dia funcionar",
-    text: "Vendas, estoque, financeiro e emissão fiscal organizados no mesmo fluxo, com implantação acompanhada.",
-    tag: "Sistema + operação",
+    icon: "▣",
+    title: "PDV e Automação Comercial",
+    text: "Sistema completo para vendas, controle de estoque e emissão fiscal.",
+    image:
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=82",
   },
   {
-    kicker: "Alimentação",
-    title: "Restaurante, bar e padaria sem informação solta",
-    text: "Mesa, comanda, delivery, cozinha, impressão e caixa conversando para reduzir retrabalho.",
-    tag: "Atendimento + cozinha",
+    icon: "⌁",
+    title: "Restaurantes e Alimentação",
+    text: "Soluções para bares, restaurantes, lanchonetes e similares.",
+    image:
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=82",
   },
   {
-    kicker: "Autoatendimento",
-    title: "Totem quando ele realmente melhora o fluxo",
-    text: "Mais agilidade para pedidos e pagamento sem transformar tecnologia em obstáculo para o cliente.",
-    tag: "Experiência + escala",
+    icon: "▯",
+    title: "Totem de Autoatendimento",
+    text: "Mais agilidade e autonomia para seus clientes.",
+    image:
+      "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=900&q=82",
   },
   {
-    kicker: "Implantação e suporte",
-    title: "Tecnologia instalada por quem entende a operação",
-    text: "Configuração, treinamento, acompanhamento remoto e presença no local quando o problema exige.",
-    tag: "Próximo + especializado",
+    icon: "◉",
+    title: "Suporte e Implantação",
+    text: "Equipe especializada para implantar, treinar e acompanhar.",
+    image:
+      "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=900&q=82",
   },
   {
-    kicker: "Info Inteligência",
-    title: "IA aplicada ao processo, não à apresentação",
-    text: "Automação de tarefas, organização de atendimento e análise de dados com pessoas no controle.",
-    tag: "Dados + decisão",
+    icon: "▥",
+    title: "Inteligência Artificial",
+    text: "Transforme os dados da sua operação em decisões mais lucrativas.",
+    image:
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=82",
   },
 ];
 
 const segments = [
-  ["Mercados e minimercados", "Caixa, estoque, balança, compras e fiscal sem travar o balcão."],
-  ["Restaurantes e pizzarias", "Comandas, mesas, cozinha, delivery e caixa no mesmo fluxo."],
-  ["Padarias e lanchonetes", "Produção, atendimento, balança, impressão e venda com mais organização."],
-  ["Lojas e serviços", "Venda, estoque, ordem de serviço, financeiro e rotina administrativa."],
+  {
+    title: "Mercados e Minimercados",
+    image:
+      "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=82",
+  },
+  {
+    title: "Restaurantes e Bares",
+    image:
+      "https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=82",
+  },
+  {
+    title: "Padarias e Confeitarias",
+    image:
+      "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=82",
+  },
+  {
+    title: "Lojas e Serviços",
+    image:
+      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=82",
+  },
 ];
 
 const reviews = [
@@ -64,355 +85,247 @@ const reviews = [
 
 export default function Home() {
   return (
-    <main>
-      <header className="site-header">
-        <div className="shell header-inner">
-          <a className="brand" href="#inicio" aria-label="INFO Soluções Tecnologia">
+    <main className="home2">
+      <header className="home2-header">
+        <div className="home2-shell home2-header-inner">
+          <a className="home2-logo" href="#inicio" aria-label="INFO Soluções Tecnologia">
             <img src="/brand/logo-light.webp" alt="INFO Soluções Tecnologia" />
           </a>
 
-          <nav className="desktop-nav" aria-label="Navegação principal">
-            <a href="#solucoes">Soluções</a>
-            <a href="#segmentos">Segmentos</a>
-            <a href="#inteligencia">Info Inteligência</a>
+          <nav className="home2-nav" aria-label="Navegação principal">
+            <a href="/solucoes">Automação Comercial <span>⌄</span></a>
+            <a href="#inteligencia">Info Inteligência <span>⌄</span></a>
+            <a href="/segmentos">Segmentos <span>⌄</span></a>
             <a href="#clientes">Clientes</a>
-            <a href="#contato">Contato</a>
+            <a href="/sobre">Sobre nós</a>
           </nav>
 
           <a
-            className="button button-small"
+            className="home2-whatsapp"
             href={wa("Olá! Conheci a Info pelo site e gostaria de falar com um especialista.")}
             target="_blank"
             rel="noreferrer"
           >
+            <span className="home2-whatsapp-icon">◉</span>
             Falar no WhatsApp
           </a>
-
-          <details className="mobile-menu">
-            <summary aria-label="Abrir menu">Menu</summary>
-            <div className="mobile-menu-panel">
-              <a href="#solucoes">Soluções</a>
-              <a href="#segmentos">Segmentos</a>
-              <a href="#inteligencia">Info Inteligência</a>
-              <a href="#clientes">Clientes</a>
-              <a href="#contato">Contato</a>
-            </div>
-          </details>
         </div>
       </header>
 
-      <section className="hero" id="inicio">
-        <div className="hero-glow" aria-hidden="true" />
-        <div className="shell hero-grid">
-          <div className="hero-copy">
-            <div className="eyebrow">AUTOMAÇÃO COMERCIAL · SUPORTE · INTELIGÊNCIA ARTIFICIAL</div>
+      <section className="home2-hero" id="inicio">
+        <div className="home2-hero-bg" aria-hidden="true" />
+        <div className="home2-shell home2-hero-grid">
+          <div className="home2-hero-copy">
+            <div className="home2-eyebrow">
+              AUTOMAÇÃO COMERCIAL · SISTEMAS · EMISSÃO FISCAL · INTELIGÊNCIA ARTIFICIAL
+            </div>
+
             <h1>
-              Tecnologia para sua empresa <span>funcionar melhor</span> e evoluir com inteligência.
+              Tecnologia para sua empresa vender melhor, trabalhar com mais controle e{" "}
+              <span>evoluir com inteligência.</span>
             </h1>
-            <p className="hero-lead">
-              Sistemas, PDV, emissão fiscal, implantação e suporte para organizar a operação.
-              Depois, inteligência aplicada aos dados e processos que sua empresa já produz.
+
+            <p>
+              Sistemas, PDV, emissão fiscal, implantação e suporte na sua loja. Depois,
+              inteligência artificial em cima dos dados da sua operação para gerar mais resultados.
             </p>
-            <div className="hero-actions">
+
+            <div className="home2-hero-actions">
               <a
-                className="button"
-                href={wa("Olá! Conheci a Info pelo site e gostaria de entender qual solução é mais adequada para minha empresa.")}
+                className="home2-primary-button"
+                href={wa(
+                  "Olá! Conheci a Info pelo site e gostaria de entender qual solução é mais adequada para minha empresa."
+                )}
                 target="_blank"
                 rel="noreferrer"
               >
+                <span>◉</span>
                 Falar com um especialista
               </a>
-              <a className="button button-ghost" href="#solucoes">
-                Conhecer as soluções
+              <a className="home2-secondary-button" href="#solucoes">
+                Conhecer soluções <span>→</span>
               </a>
             </div>
 
-            <div className="trust-row" aria-label="Indicadores de confiança">
-              <div>
-                <strong>5,0</strong>
-                <span>avaliação no Google</span>
+            <div className="home2-trust">
+              <div className="home2-google">
+                <div className="home2-google-g">G</div>
+                <div>
+                  <strong>5,0 no Google</strong>
+                  <span>+ de 40 avaliações públicas</span>
+                  <div className="home2-stars">★★★★★</div>
+                </div>
               </div>
-              <div>
-                <strong>16 anos</strong>
-                <span>de mercado</span>
+              <div className="home2-trust-item">
+                <span className="home2-trust-icon">⌘</span>
+                <div>
+                  <strong>16 anos</strong>
+                  <span>de mercado</span>
+                </div>
               </div>
-              <div>
-                <strong>Presencial + remoto</strong>
-                <span>atendimento próximo</span>
+              <div className="home2-trust-item">
+                <span className="home2-trust-icon">◎</span>
+                <div>
+                  <strong>Atendimento</strong>
+                  <span>presencial e remoto</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="hero-visual" aria-label="Visão da operação conectada">
-            <div className="visual-topbar">
-              <span>Operação em tempo real</span>
-              <span className="status-dot">Ativo</span>
-            </div>
-            <div className="visual-main">
-              <div className="visual-heading">
-                <img src="/brand/mark.webp" alt="" />
-                <div>
-                  <span>Ecossistema INFO</span>
-                  <strong>Da venda à decisão</strong>
-                </div>
-              </div>
-              <div className="visual-flow">
-                <div className="flow-card">
-                  <span>01</span>
-                  <strong>Venda</strong>
-                  <small>PDV e fiscal</small>
-                </div>
-                <div className="flow-line" />
-                <div className="flow-card">
-                  <span>02</span>
-                  <strong>Controle</strong>
-                  <small>estoque e financeiro</small>
-                </div>
-                <div className="flow-line" />
-                <div className="flow-card">
-                  <span>03</span>
-                  <strong>Inteligência</strong>
-                  <small>dados e automação</small>
-                </div>
-              </div>
-              <div className="visual-bottom">
-                <div>
-                  <small>Implantação</small>
-                  <strong>Acompanhada</strong>
-                </div>
-                <div>
-                  <small>Suporte</small>
-                  <strong>Especializado</strong>
-                </div>
-                <div>
-                  <small>Decisão</small>
-                  <strong>Humano no controle</strong>
-                </div>
-              </div>
+          <div className="home2-hero-photo" aria-label="Automação comercial em ambiente de varejo">
+            <div className="home2-photo-overlay" />
+            <div className="home2-photo-badge">
+              <img src="/brand/mark.webp" alt="" />
+              <span>Operação conectada</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="problem-strip">
-        <div className="shell problem-grid">
-          <div className="problem-intro">
-            <span className="section-label">Problemas que resolvemos</span>
-            <h2>Antes da tecnologia, vem o que está travando seu dia.</h2>
-          </div>
-          {[
-            ["Caixa lento", "Fila cresce, atendimento trava e todo mundo perde tempo."],
-            ["Estoque sem controle", "Compra no escuro, produto faltando e dinheiro parado."],
-            ["Informação espalhada", "Vendas, financeiro e fiscal em lugares diferentes."],
-            ["Processo manual", "Equipe copiando dados e repetindo tarefas que poderiam ser automatizadas."],
-          ].map(([title, text], index) => (
-            <article className="problem-card" key={title}>
-              <span>0{index + 1}</span>
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section" id="solucoes">
-        <div className="shell">
-          <div className="section-heading">
+      <section className="home2-solutions" id="solucoes">
+        <div className="home2-shell">
+          <div className="home2-section-top">
             <div>
-              <span className="section-label">Soluções</span>
-              <h2>Tecnologia para a operação real do seu negócio.</h2>
+              <h2>Soluções para a operação real do seu negócio</h2>
+              <p>Tecnologia, suporte e inteligência para o dia a dia da sua empresa.</p>
             </div>
-            <p>
-              Não começamos por módulo ou marca. Primeiro entendemos como sua empresa vende,
-              atende e controla. Depois montamos a solução adequada.
-            </p>
+            <a href="/solucoes">Ver todas as soluções →</a>
           </div>
 
-          <div className="solution-grid">
-            {solutions.map((item, index) => (
-              <article className="solution-card" key={item.title}>
-                <div className="solution-number">0{index + 1}</div>
-                <span className="solution-kicker">{item.kicker}</span>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-                <span className="solution-tag">{item.tag}</span>
+          <div className="home2-solution-grid">
+            {solutionCards.map((item) => (
+              <article className="home2-solution-card" key={item.title}>
+                <div className="home2-solution-copy">
+                  <div className="home2-solution-icon">{item.icon}</div>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </div>
+                <img src={item.image} alt="" loading="lazy" />
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section section-soft" id="segmentos">
-        <div className="shell">
-          <div className="section-heading">
-            <div>
-              <span className="section-label">Segmentos</span>
-              <h2>Seu negócio tem uma rotina própria. A tecnologia também precisa ter.</h2>
+      <section className="home2-middle">
+        <div className="home2-shell home2-middle-grid">
+          <div className="home2-segments">
+            <div className="home2-block-heading">
+              <h2>Segmentos que atendemos</h2>
+              <p>Soluções sob medida para diferentes tipos de negócio.</p>
             </div>
-            <p>
-              Configuração, implantação e suporte mudam conforme a operação. O objetivo é fazer
-              o sistema trabalhar do jeito certo para cada empresa.
-            </p>
+
+            <div className="home2-segment-grid">
+              {segments.map((segment) => (
+                <a className="home2-segment-card" href="/segmentos" key={segment.title}>
+                  <img src={segment.image} alt="" loading="lazy" />
+                  <div className="home2-segment-shade" />
+                  <strong>{segment.title}</strong>
+                </a>
+              ))}
+            </div>
           </div>
 
-          <div className="segment-grid">
-            {segments.map(([title, text], index) => (
-              <article className="segment-card" key={title}>
-                <div className={`segment-art art-${index + 1}`}>
-                  <span>0{index + 1}</span>
-                </div>
-                <div className="segment-copy">
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+          <div className="home2-reviews" id="clientes">
+            <div className="home2-block-heading home2-rating-heading">
+              <h2>Avaliações no Google <span>★★★★★</span> <b>5,0</b></h2>
+              <p>+ de 40 avaliações públicas de clientes que confiam no nosso trabalho.</p>
+            </div>
 
-      <section className="section intelligence" id="inteligencia">
-        <div className="shell intelligence-grid">
-          <div>
-            <span className="section-label section-label-light">INFO INTELIGÊNCIA</span>
-            <h2>IA como copiloto. Pessoa no controle.</h2>
-            <p>
-              A inteligência entra onde existe repetição, informação demais ou oportunidade de
-              decisão melhor. Sem vender promessa antes de entender o processo.
-            </p>
-            <a
-              className="button button-light"
-              href={wa("Olá! Quero entender como a Info pode aplicar automação ou inteligência artificial na minha empresa.")}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Conversar sobre IA e automação
-            </a>
+            <div className="home2-review-grid">
+              {reviews.map((review) => (
+                <figure className="home2-review-card" key={review.author}>
+                  <div className="home2-review-top">
+                    <span className="home2-avatar">●</span>
+                    <span className="home2-stars">★★★★★</span>
+                  </div>
+                  <blockquote>“{review.quote}”</blockquote>
+                  <figcaption>{review.author}</figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
-          <div className="intelligence-map">
-            {[
-              ["Atendimento", "IA responde o repetitivo", "Humano assume quando precisa"],
-              ["Dados", "Informação organizada", "Gestor decide com contexto"],
-              ["Processos", "Tarefas automatizadas", "Histórico e auditoria"],
-            ].map(([title, middle, end]) => (
-              <div className="intelligence-row" key={title}>
-                <strong>{title}</strong>
-                <span>{middle}</span>
-                <span className="arrow">→</span>
-                <span>{end}</span>
+
+          <div className="home2-flow" id="inteligencia">
+            <div className="home2-block-heading">
+              <h2>Da operação à inteligência</h2>
+              <p>Seus dados viram informação. E informação vira resultado.</p>
+            </div>
+
+            <div className="home2-flow-line">
+              <div className="home2-flow-step">
+                <span>🛒</span>
+                <strong>Caixa</strong>
+                <small>Vendas registradas no PDV.</small>
               </div>
-            ))}
+              <b>→</b>
+              <div className="home2-flow-step">
+                <span>◉</span>
+                <strong>Dados</strong>
+                <small>Informações da operação.</small>
+              </div>
+              <b>→</b>
+              <div className="home2-flow-step">
+                <span>⚙</span>
+                <strong>Automação</strong>
+                <small>Processos mais rápidos e seguros.</small>
+              </div>
+              <b>→</b>
+              <div className="home2-flow-step">
+                <span>▥</span>
+                <strong>Decisão</strong>
+                <small>Inteligência para vender mais e reduzir custos.</small>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="section" id="clientes">
-        <div className="shell">
-          <div className="section-heading">
-            <div>
-              <span className="section-label">Prova social</span>
-              <h2>Atendimento que aparece nas avaliações.</h2>
-            </div>
-            <p>
-              Menos adjetivo e mais evidência: avaliações públicas de clientes sobre sistema,
-              implantação e suporte.
-            </p>
+      <section className="home2-cta" id="contato">
+        <div className="home2-shell home2-cta-card">
+          <div className="home2-cta-copy">
+            <span>VAMOS EVOLUIR O SEU NEGÓCIO?</span>
+            <h2>Fale com um especialista e descubra a melhor solução para a sua empresa.</h2>
+            <p>Atendimento rápido, consultivo e sem complicação.</p>
           </div>
 
-          <div className="rating-banner">
-            <div className="rating-score">5,0</div>
-            <div>
-              <div className="stars" aria-label="5 estrelas">★★★★★</div>
-              <strong>+40 avaliações públicas no Google</strong>
-            </div>
-            <a href="https://www.google.com/search?q=Info+Solu%C3%A7%C3%B5es+Tecnologia+Guaruj%C3%A1" target="_blank" rel="noreferrer">
-              Ver avaliações
-            </a>
-          </div>
-
-          <div className="review-grid">
-            {reviews.map((review) => (
-              <figure className="review-card" key={review.author}>
-                <div className="stars" aria-hidden="true">★★★★★</div>
-                <blockquote>“{review.quote}”</blockquote>
-                <figcaption>{review.author} · avaliação pública no Google</figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section how">
-        <div className="shell">
-          <div className="section-heading">
-            <div>
-              <span className="section-label">Como trabalhamos</span>
-              <h2>Não acaba na instalação. É aí que começa.</h2>
-            </div>
-          </div>
-          <div className="steps">
-            {[
-              ["01", "Entendemos", "Mapeamos a rotina antes de indicar tecnologia."],
-              ["02", "Implantamos", "Configuramos para o seu jeito de vender e controlar."],
-              ["03", "Treinamos", "Sua equipe aprende a usar no dia a dia."],
-              ["04", "Acompanhamos", "Suporte remoto e presencial quando necessário."],
-              ["05", "Evoluímos", "A tecnologia acompanha a operação até a automação e a IA."],
-            ].map(([number, title, text]) => (
-              <article className="step" key={number}>
-                <span>{number}</span>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="cta-section" id="contato">
-        <div className="shell cta-card">
-          <div>
-            <span className="section-label section-label-light">Tecnologia que impulsiona resultados.</span>
-            <h2>Descubra o que dá para melhorar primeiro na sua operação.</h2>
-            <p>
-              Uma conversa objetiva para entender o cenário e indicar o próximo passo sem empurrar
-              solução que não faz sentido.
-            </p>
-          </div>
           <a
-            className="button button-light button-large"
-            href={wa("Olá! Quero conversar sobre a operação da minha empresa e entender o que a Info recomenda.")}
+            className="home2-cta-button"
+            href={wa("Olá! Quero conversar com um especialista da Info sobre a minha empresa.")}
             target="_blank"
             rel="noreferrer"
           >
-            Falar com um especialista
+            <span>◉</span>
+            Falar no WhatsApp
+            <b>›</b>
           </a>
+
+          <div className="home2-cta-benefits">
+            <div><span>☎</span><small>Atendimento<br/>especializado</small></div>
+            <div><span>♡</span><small>Soluções sob medida<br/>para o seu segmento</small></div>
+            <div><span>⌁</span><small>Implantação e suporte<br/>contínuo</small></div>
+          </div>
         </div>
       </section>
 
-      <footer className="footer">
-        <div className="shell footer-grid">
-          <div className="footer-brand">
-            <img src="/brand/logo-dark.webp" alt="INFO Soluções Tecnologia" />
-            <p>
-              Sistemas, automação comercial, suporte e inteligência aplicada à operação.
-            </p>
-          </div>
-          <div>
-            <strong>Soluções</strong>
-            <a href="#solucoes">Automação comercial</a>
+      <footer className="home2-footer">
+        <div className="home2-shell home2-footer-main">
+          <img className="home2-footer-logo" src="/brand/logo-light.webp" alt="INFO Soluções Tecnologia" />
+          <nav>
+            <a href="/solucoes">Automação Comercial</a>
             <a href="#inteligencia">Info Inteligência</a>
-            <a href="#segmentos">Segmentos</a>
-          </div>
-          <div>
-            <strong>Atendimento</strong>
-            <a href={wa("Olá! Preciso de atendimento da Info.")} target="_blank" rel="noreferrer">
-              WhatsApp
-            </a>
+            <a href="/segmentos">Segmentos</a>
+            <a href="#clientes">Clientes</a>
+            <a href="/sobre">Sobre nós</a>
+            <a href="/contato">Contato</a>
+          </nav>
+          <div className="home2-footer-contact">
             <span>Baixada Santista e São Paulo</span>
-            <span>Presencial e remoto</span>
+            <a href="tel:+551330184840">(13) 3018-4840</a>
           </div>
         </div>
-        <div className="shell footer-bottom">
+        <div className="home2-shell home2-footer-bottom">
           <span>© 2026 INFO Soluções Tecnologia</span>
           <span>Tecnologia que impulsiona resultados.</span>
         </div>
