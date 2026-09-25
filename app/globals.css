@@ -494,3 +494,112 @@ button, input, textarea, select { font: inherit; }
   .footer-grid { grid-template-columns: 1fr; gap: 36px; }
   .footer-bottom { display: grid; }
 }
+
+
+.subpage-hero {
+  padding: 86px 0 68px;
+  background:
+    radial-gradient(circle at 86% 10%, rgba(28,135,255,.13), transparent 28%),
+    linear-gradient(180deg, #fff 0%, #f7faff 100%);
+}
+.subpage-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 70px;
+  align-items: center;
+}
+.subpage-hero h1 {
+  margin: 0;
+  max-width: 760px;
+  font-size: clamp(44px, 5vw, 68px);
+  line-height: 1.02;
+  letter-spacing: -.045em;
+}
+.subpage-hero p {
+  max-width: 710px;
+  margin: 24px 0 0;
+  color: #566984;
+  font-size: 18px;
+  line-height: 1.7;
+}
+.subpage-brand-card {
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 32px;
+  border-radius: 28px;
+  color: white;
+  background:
+    radial-gradient(circle at 80% 5%, rgba(23,145,255,.34), transparent 33%),
+    linear-gradient(145deg, #06142f, #092b65);
+  box-shadow: var(--shadow);
+}
+.subpage-brand-card img {
+  width: 90px;
+  margin-bottom: auto;
+}
+.subpage-brand-card span {
+  color: #86baff;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.subpage-brand-card strong {
+  max-width: 360px;
+  margin-top: 10px;
+  font-size: 31px;
+  line-height: 1.08;
+  letter-spacing: -.035em;
+}
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+.content-card {
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(14, 50, 99, .05);
+}
+.content-card > span {
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 900;
+}
+.content-card h2 {
+  margin: 30px 0 10px;
+  font-size: 26px;
+  line-height: 1.15;
+  letter-spacing: -.025em;
+}
+.content-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 860px) {
+  .subpage-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+}
+
+@media (max-width: 720px) {
+  .subpage-hero {
+    padding: 58px 0 46px;
+  }
+  .subpage-hero h1 {
+    font-size: clamp(38px, 11vw, 52px);
+  }
+  .subpage-brand-card {
+    min-height: 260px;
+  }
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
